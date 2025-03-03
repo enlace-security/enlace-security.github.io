@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enlace - Security Backbone for Financial Institutions</title>
+    <style>
+      :root {
+        --primary: #1a56db;
+        --primary-dark: #1e429f;
+        --secondary: #4b5563;
+        --light: #f3f4f6;
+        --dark: #1f2937;
+        --accent: #3b82f6;
+        --danger: #ef4444;
+        --success: #10b981;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: var(--dark);
+        background-color: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary);
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: var(--primary-dark);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        color: white;
+      }
+
+      .btn-secondary {
+        background-color: white;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--light);
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        align-items: center;
+        padding: 5rem 0;
+        background-color: var(--light);
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .hero-content {
+        flex: 1;
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+      }
+
+      .hero p {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        color: var(--secondary);
+      }
+
+      /* Value Proposition */
+      .value-prop {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        font-size: 1.125rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .card p {
+        color: var(--secondary);
+      }
+
+      /* Products Section */
+      .products {
+        padding: 5rem 0;
+        background-color: var(--light);
+      }
+
+      .product {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5rem;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-content {
+        flex: 1;
+        padding: 3rem;
+      }
+
+      .product-image {
+        flex: 1;
+        background-color: #f9fafb;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px;
+      }
+
+      .product h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .product p {
+        margin-bottom: 1.5rem;
+      }
+
+      .features {
+        margin: 2rem 0;
+      }
+
+      .feature {
+        margin-bottom: 1rem;
+      }
+
+      .feature h4 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature p {
+        font-size: 0.95rem;
+      }
+
+      .benefits {
+        margin: 2rem 0;
+      }
+
+      .benefits h4 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .benefits ul {
+        list-style-type: none;
+      }
+
+      .benefits li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .benefits li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success);
+        font-weight: bold;
+      }
+
+      /* CTA Section */
+      .cta {
+        text-align: center;
+        padding: 5rem 0;
+      }
+
+      .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta p {
+        font-size: 1.125rem;
+        color: var(--secondary);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .footer-logo {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-links {
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .footer-links h4 {
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+      }
+
+      .footer-links ul {
+        list-style-type: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: var(--light);
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        margin-top: 3rem;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 0.875rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero,
+        .product {
+          flex-direction: column;
+        }
+
+        .hero-content,
+        .product-content {
+          padding-right: 0;
+          margin-bottom: 2rem;
+        }
+
+        .product-image {
+          min-height: 300px;
+          width: 100%;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Enlace</div>
+          <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">Solutions</a>
+            <a href="#">Resources</a>
+            <a href="#">About</a>
+          </div>
+          <div>
+            <a href="#" class="btn btn-primary">Contact Us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="container">
+        <div class="hero">
+          <div class="hero-content">
+            <h1>The Trusted Security Backbone for Banks and Financial Institutions</h1>
+            <p>
+              Enlace provides the authentication and security solutions needed to protect customers and prevent
+              transaction fraud.
+            </p>
+            <a href="#" class="btn btn-primary">Book a Demo</a>
+          </div>
+          <div class="hero-image">
+            <img src="/api/placeholder/500/400" alt="Security visualization" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Value Proposition -->
+      <section class="value-prop">
+        <div class="container">
+          <div class="section-header">
+            <h2>Why Enlace?</h2>
+            <p>
+              Security isn't an afterthought — it's what we do. Our team has spent years building and scaling
+              authentication and fraud prevention solutions for financial institutions. We know the threats. We've built
+              the defenses. Now, we're bringing that expertise to you.
+            </p>
+          </div>
+
+          <h3 style="text-align: center; margin-bottom: 1.5rem">How We Can Help</h3>
+
+          <div class="cards">
+            <div class="card">
+              <img src="/api/placeholder/80/80" alt="Fraud prevention icon" />
+              <h3>Stop fraud before it starts</h3>
+              <p>Eliminate account takeovers and transaction fraud with AI-driven security.</p>
+            </div>
+            <div class="card">
+              <img src="/api/placeholder/80/80" alt="Authentication icon" />
+              <h3>Build trust with seamless authentication</h3>
+              <p>
+                Passwords are broken. We help you move to secure, user-friendly authentication solutions that customers
+                love.
+              </p>
+            </div>
+            <div class="card">
+              <img src="/api/placeholder/80/80" alt="Compliance icon" />
+              <h3>Stay ahead of evolving regulations</h3>
+              <p>
+                Financial compliance is complex. We simplify security so your business stays compliant without the
+                hassle.
+              </p>
+            </div>
+          </div>
+
+          <p style="text-align: center; margin-top: 2rem; font-weight: 500">
+            We're not just another security provider. We're your partners in securing digital banking.
+          </p>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="products">
+        <div class="container">
+          <div class="section-header">
+            <h2>Our Products</h2>
+          </div>
+
+          <!-- Authentication Product -->
+          <div class="product">
+            <div class="product-content">
+              <h3>Authentication</h3>
+              <h4>Secure, frictionless access for every user</h4>
+              <p>
+                Authentication should be effortless for users and impenetrable for attackers. Enlace Authentication
+                eliminates passwords, stops credential-based attacks, and provides seamless access to your digital
+                platforms.
+              </p>
+
+              <div class="features">
+                <h4>What You Get</h4>
+                <div class="feature">
+                  <h4>Passkeys & Passwordless Login</h4>
+                  <p>Say goodbye to passwords and hello to fast, secure authentication.</p>
+                </div>
+                <div class="feature">
+                  <h4>Adaptive Multi-Factor Authentication (MFA)</h4>
+                  <p>Context-aware security that challenges users only when necessary.</p>
+                </div>
+                <div class="feature">
+                  <h4>Single Sign-On (SSO)</h4>
+                  <p>One login, total access.</p>
+                </div>
+                <div class="feature">
+                  <h4>Seamless Rollout & Customer Adoption</h4>
+                  <p>We provide expertise on how to transition customers to secure authentication smoothly.</p>
+                </div>
+                <div class="feature">
+                  <h4>Regulatory Compliance</h4>
+                  <p>Aligned with PSD2, PCI DSS, and HIPAA standards.</p>
+                </div>
+              </div>
+
+              <div class="benefits">
+                <h4>How It Helps</h4>
+                <ul>
+                  <li>Blocks phishing and credential-stuffing attacks.</li>
+                  <li>Reduces friction for customers and employees.</li>
+                  <li>Strengthens security while ensuring compliance.</li>
+                </ul>
+              </div>
+
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="product-image">
+              <img src="/api/placeholder/400/400" alt="Authentication solution visualization" />
+            </div>
+          </div>
+
+          <!-- AI Fraud Capture Product -->
+          <div class="product">
+            <div class="product-image">
+              <img src="/api/placeholder/400/400" alt="AI Fraud solution visualization" />
+            </div>
+            <div class="product-content">
+              <h3>AI Fraud Capture</h3>
+              <h4>Stop Fraud Before It Happens</h4>
+              <p>
+                Fraudsters move fast. Enlace's AI Fraud Capture moves faster. Our AI-powered system detects, analyzes,
+                and stops fraudulent transactions in real-time, keeping your customers and business safe.
+              </p>
+
+              <div class="features">
+                <h4>What You Get</h4>
+                <div class="feature">
+                  <h4>Integration with Existing Systems</h4>
+                  <p>
+                    Seamlessly connects with your current authentication flows, ensuring fraud prevention is embedded
+                    where it matters most.
+                  </p>
+                </div>
+                <div class="feature">
+                  <h4>Data-Driven Fraud Intelligence</h4>
+                  <p>
+                    Captures key authentication data points to enrich rule-based engines and AI models for deeper fraud
+                    assessments and anomaly detection.
+                  </p>
+                </div>
+              </div>
+
+              <div class="benefits">
+                <h4>How It Helps</h4>
+                <ul>
+                  <li>Reduces fraud losses and chargebacks.</li>
+                  <li>Prevents unauthorized account takeovers.</li>
+                  <li>Enhances risk management with real-time fraud insights.</li>
+                </ul>
+              </div>
+
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Security+ Product -->
+          <div class="product">
+            <div class="product-content">
+              <h3>Security+</h3>
+              <h4>Protecting Your Most Vulnerable Customers</h4>
+              <p>
+                Fraudsters target the most vulnerable customers—those unfamiliar with digital banking, high-value
+                account holders, and users with limited security awareness. Enlace Security+ helps financial
+                institutions reinforce weak authentication flows with dynamic security measures, step-up verification,
+                and fraud-aware customer education to ensure every user is protected.
+              </p>
+
+              <div class="features">
+                <h4>What You Get</h4>
+                <div class="feature">
+                  <h4>Zero Trust Security</h4>
+                  <p>Enforce strict security policies to eliminate weak points based on your most urgent needs.</p>
+                </div>
+                <div class="feature">
+                  <h4>Continuous Authentication</h4>
+                  <p>Introduce dynamic authentication measures to prevent automated attacks.</p>
+                </div>
+                <div class="feature">
+                  <h4>Risk-Based Verifications</h4>
+                  <p>Strengthen high-risk transactions with additional authentication layers.</p>
+                </div>
+                <div class="feature">
+                  <h4>Consulting & Best Practices</h4>
+                  <p>Guide your team on implementing evolving fraud prevention strategies to protect customers.</p>
+                </div>
+              </div>
+
+              <div class="benefits">
+                <h4>How It Helps</h4>
+                <ul>
+                  <li>Prevents fraudulent monetary losses while keeping customer transactions smooth and secure.</li>
+                  <li>
+                    Uses real-time risk-based authentication to stop unauthorized transactions without disrupting
+                    trusted users.
+                  </li>
+                  <li>Adds step-up verification only when needed, keeping fraud out and customers moving.</li>
+                </ul>
+              </div>
+
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="product-image">
+              <img src="/api/placeholder/400/400" alt="Security+ solution visualization" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta">
+        <div class="container">
+          <h2>See What Enlace Can Do For You</h2>
+          <p>Your customers expect security without friction. Enlace helps you deliver both.</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Book a Demo</a>
+            <a href="#" class="btn btn-secondary">Contact Sales</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Enlace</h3>
+            <p>The trusted security backbone for financial institutions.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#">Authentication</a></li>
+              <li><a href="#">AI Fraud Capture</a></li>
+              <li><a href="#">Security+</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Case Studies</a></li>
+              <li><a href="#">Security Center</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Enlace Security. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
